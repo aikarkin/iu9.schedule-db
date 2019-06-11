@@ -89,7 +89,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     (
       department_id     SERIAL PRIMARY KEY,
       faculty_id        INTEGER REFERENCES faculty (faculty_id),
-      department_number INTEGER NOT NULL CHECK (department_number > 0),
+      department_number INTEGER NOT NULL CHECK (department_number >= 0),
       title             TEXT    NULL
     );
 
